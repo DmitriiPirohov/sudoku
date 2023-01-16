@@ -15,42 +15,43 @@ function App() {
             (activeExit === false) ?
               <>
                 <div className="App__botton_link">
-                  <Link
+                  <div>1</div>
+                  {/* <Link
                     to="/play"
                     onClick={() => SetActiveExit(prev => !prev)}
                     className='App__link'
                   >
                     Play
-                  </Link>
+                  </Link> */}
                 </div>
 
                 <br />
 
                 <div className="App__botton_link">
-                  <Link
+                  {/* <Link
                     to="/chooseLevel"
                     onClick={() => SetActiveExit(prev => !prev)}
                     className='App__link'
                   >
                     Records
-                  </Link>
+                  </Link> */}
                 </div>
 
               </>
               :
               <div className="App__botton_link">
-                <Link
+                {/* <Link
                   to="/"
                   onClick={() => SetActiveExit(prev => !prev)}
                   className='App__link'
                 >
                   Exit
-                </Link>
+                </Link> */}
               </div>
           }
         </nav>
 
-        <Routes>
+        {/* <Routes>
           <Route
             path="play"
             element={<ChooseLevel name={'game'} />}
@@ -60,7 +61,7 @@ function App() {
             path="chooseLevel"
             element={<ChooseLevel name={'records'} />}
           />
-        </Routes>
+        </Routes> */}
       </div>
     </div>
   );
