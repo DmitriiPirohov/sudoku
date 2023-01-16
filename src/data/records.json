@@ -1,0 +1,9 @@
+[
+  {"easy" : [{"name" : "Bot", "time" : "3000000"}]},
+  {"medium" : [{"name" : "Bot", "time" : "3000000"}]},
+  {"hard" : [{"name" : "Bot", "time" : "3000000"}]},
+  {"very-hard" : [{"name" : "Bot", "time" : "3000000"}]},
+  {"insane" : [{"name" : "Bot", "time" : "3000000"}]},
+  {"inhuman" : [{"name" : "Batya", "time" : "420"}]},
+  {"easy" : [{"name" : "Bot" , "time" : "80000"}]}
+]

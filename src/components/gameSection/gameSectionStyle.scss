@@ -1,0 +1,123 @@
+$Size: 33px;
+
+.GameBord {
+  display: flex;
+  justify-content: space-around;
+
+  max-width: 600px;
+  max-height: 600px;
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+
+  @media (max-width: 400px) {
+    width: 350px;
+    height: 350px;
+  }
+
+  &__error {
+    border-color: red;
+  }
+
+  &__buttons_container {
+    margin-left: $Size;
+    margin-top: 5px;
+
+    :hover {
+      background-color: greenyellow;
+
+      transition: all 300ms;
+    }
+
+    :active {
+      background-color: burlywood;
+    }
+  }
+
+  &__buttons {
+    cursor: pointer;
+    background-color: burlywood;
+    width: $Size;
+    height: $Size;
+    text-align: center;
+    margin-top: 2px;
+
+    &--active {
+      background-color: greenyellow;
+    }
+  }
+
+  &__father_number {
+    background-color: burlywood;
+    width: $Size;
+    height: $Size;
+    text-align: center;
+
+
+    &--num {
+      transform: translate(0, 50%)
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1fr));
+    border: 5px solid black;
+    // ?   gap: 0;
+  }
+
+  &__column {
+    border: 1px solid black;
+    min-width: $Size;
+    height: $Size;
+
+  }
+
+  &__input {
+    cursor: pointer;
+    display: flex;
+    background-color: none;
+    border: none;
+    box-sizing: border-box;
+    max-width: $Size;
+    height: $Size;
+    white-space: pre-wrap;
+
+    &--oneNum {
+      tab-size: 15px;
+      font-size: larger;
+      padding-left: $Size / 2.5;
+      padding-top: $Size / 4.8;
+
+    }
+
+    &--active {
+      background-color: greenyellow;
+    }
+
+    &--draw {
+      color: blue;
+      white-space: pre-wrap;
+      word-break: break-all;
+      line-height: 16px;
+      letter-spacing: 8px;
+      background-color: gray;
+    }
+  }
+}
+
+.selected {
+  background-color: greenyellow;
+}
+
+.right-border {
+  border-right: 3px solid black;
+}
+
+.bottom-border {
+  border-bottom: 3px solid black;
+}
+
+.error {
+  background-color: red;
+}
