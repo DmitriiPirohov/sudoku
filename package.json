@@ -1,5 +1,6 @@
 {
   "name": "sudoku",
+  "homepage": "https://DmitriiPirohov.github.io/sudoku",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
