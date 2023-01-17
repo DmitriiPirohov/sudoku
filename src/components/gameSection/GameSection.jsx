@@ -21,71 +21,92 @@ export const GameSection = ({ level, time }) => {
   const bottomBorder = [19, 20, 21, 22, 23, 24, 25, 26, 27, 46, 47, 48, 49, 50, 51, 52, 53, 54];
 
   useEffect(() => {
-    SetVisibleArray(getSudoku().board_string_to_grid(getSudoku().generate(level)));
+    SetVisibleArray(getSudoku().board_string_to_grid(getSudoku().generate(75)));
+    // level
   }, []);
+
+  // console.log(indexError);
 
 
   useEffect(() => {
-    if (visibleArray.flat().join('').replace(/[+]/g, '').length === 81) {
-      SetSolveString(getSudoku().solve(getSudoku().board_grid_to_string(visibleArray)));
+    let ask = false;
+    setMistake()
+    // if (visibleArray.flat().join('').replace(/[+]/g, '').length === 81) {
+    //   SetSolveString(getSudoku().solve(getSudoku().board_grid_to_string(visibleArray)));
+    // }
+
+    if(visibleArray.flat().toString().replace(/[,.+]/g, '').length === 81 && !visibleArray.flat().toString().includes('+')) {
+      console.log(visibleArray.flat().toString().replace(/[,.+]/g, '').length);
+      console.log(ask);
+      console.log(indexError);
+      if(ask === false && indexError.length === 1) {
+        SetWin(true);
+      }
     }
-
-    if (visibleArray.flat().join('').replace(/[^+]/g, '').length === 0 && visibleArray.flat().join('').replace(/[.+]/g, '').length === 81) {
-      solveString === getSudoku().board_grid_to_string(visibleArray.map(a => a.map(a => a.replace('.', '')))) && SetWin(true);
-    }
-
-    if (chooseRow !== -1 && chooseColumn !== -1) {
-      let arrRowForCheck = visibleArray[chooseRow].map(a => a.replace(/[.]/g, ''));
-      let value = visibleArray[chooseRow][chooseColumn].replace(/[.]/g, '');
-      let arrColumnCheck = visibleArray.map(elem => elem[chooseColumn].replace(/[.]/g, ''));
-      let arrBlockCheck = cub(chooseRow, chooseColumn).map(a => a.replace(/[.]/g, ''));
-
-      function cub(r, c) {
-        let start = (n) => n >= 6 ? 6 : n >= 3 ? 3 : 0;
-
-        let arr = [];
-        for (let i = 0; i < 3; i++) {
-          arr.push(visibleArray[start(r) + i].slice(start(c), start(c) + 3))
+    
+    function setMistake() {
+      if (chooseRow !== -1 && chooseColumn !== -1) {
+        let arrRowForCheck = visibleArray[chooseRow].map(a => a.replace(/[.]/g, ''));
+        let value = visibleArray[chooseRow][chooseColumn].replace(/[.]/g, '');
+        let arrColumnCheck = visibleArray.map(elem => elem[chooseColumn].replace(/[.]/g, ''));
+        let arrBlockCheck = cub(chooseRow, chooseColumn).map(a => a.replace(/[.]/g, ''));
+  
+        function cub(r, c) {
+          let start = (n) => n >= 6 ? 6 : n >= 3 ? 3 : 0;
+  
+          let arr = [];
+          for (let i = 0; i < 3; i++) {
+            arr.push(visibleArray[start(r) + i].slice(start(c), start(c) + 3))
+          }
+          return arr.flat();
         }
-        return arr.flat();
-      }
-
-      if (visibleArray[chooseRow][chooseColumn] === '.') {
-        return SetIndexError(prev => [...prev].filter(a => a !== chooseFill));
-      }
-
-      if (arrRowForCheck.filter(a => a === value).length > 1) {
-        return (
-          SetIndexError(prev => [...prev, chooseFill])
-        )
-      }
-
-      if (arrBlockCheck.filter(a => a === value).length > 1) {
-        return SetIndexError(prev => [...prev, chooseFill]);
-      }
-
-      if (arrColumnCheck.filter(a => a === value).length > 1) {
-        return SetIndexError(prev => [...prev, chooseFill]);
-      }
-
-      if (arrRowForCheck.filter(a => a === value).length === 1) {
-        return (
-          SetIndexError(prev => [...prev].filter(a => a !== chooseFill))
-        )
-      }
-
-      if (arrColumnCheck.filter(a => a === value).length === 1) {
-        return (
-          SetIndexError(prev => [...prev].filter(a => a !== chooseFill))
-        )
-      }
-
-      if (arrBlockCheck.filter(a => a === value).length === 1) {
-        return (
-          SetIndexError(prev => [...prev].filter(a => a !== chooseFill))
-        )
+  
+        if (visibleArray[chooseRow][chooseColumn] === '.') {
+          return (
+            ask = false,
+            SetIndexError(prev => [...prev].filter(a => a !== chooseFill)));
+        }
+  
+        if (arrRowForCheck.filter(a => a === value).length > 1) {
+          return (
+            ask = true,
+            SetIndexError(prev => [...prev, chooseFill])
+          )
+        }
+  
+        if (arrBlockCheck.filter(a => a === value).length > 1) {
+          return (
+            ask = true,
+            SetIndexError(prev => [...prev, chooseFill]));
+        }
+  
+        if (arrColumnCheck.filter(a => a === value).length > 1) {
+          return (
+            ask = true,
+            SetIndexError(prev => [...prev, chooseFill]));
+        }
+  
+        if (arrRowForCheck.filter(a => a === value).length === 1) {
+          return (
+            SetIndexError(prev => [...prev].filter(a => a !== chooseFill))
+          )
+        }
+  
+        if (arrColumnCheck.filter(a => a === value).length === 1) {
+          return (
+            SetIndexError(prev => [...prev].filter(a => a !== chooseFill))
+          )
+        }
+  
+        if (arrBlockCheck.filter(a => a === value).length === 1) {
+          return (
+            SetIndexError(prev => [...prev].filter(a => a !== chooseFill))
+          )
+        }
       }
     }
+
+    // setMistake()
   }, [visibleArray]);
 
   const selectedSell = (sell) => {
@@ -182,7 +203,10 @@ export const GameSection = ({ level, time }) => {
     }
   }
 
-  function getDraft() {
+  function getDraft(res = '') {
+    if(res === 'restart') {
+      serviceButton('restart')
+    }
     let candidate;
 
     if (visibleArray.flat().join('').length === 81) {
@@ -206,7 +230,10 @@ export const GameSection = ({ level, time }) => {
 
       case 'restart':
 
-        return SetVisibleArray(prev => prev.map(a => a.map(a => a.includes('.') ? '.' : a)));
+        return (
+          SetVisibleArray(prev => prev.map(a => a.map(a => a.includes('.') ? '.' : a))),
+          SetIndexError([-1])
+          );
 
       default:
         break;

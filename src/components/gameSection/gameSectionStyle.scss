@@ -10,9 +10,12 @@ $Size: 33px;
   padding: 0;
   white-space: pre-wrap;
 
+  font-size: 14px;
+
   @media (max-width: 400px) {
     width: 350px;
     height: 350px;
+    font-size: 8px;
   }
 
   &__error {
@@ -20,7 +23,7 @@ $Size: 33px;
   }
 
   &__buttons_container {
-    margin-left: $Size;
+    // margin-left: $Size;
     margin-top: 5px;
 
     :hover {
@@ -63,7 +66,6 @@ $Size: 33px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(1fr));
     border: 5px solid black;
-    // ?   gap: 0;
   }
 
   &__column {
@@ -79,7 +81,7 @@ $Size: 33px;
     background-color: none;
     border: none;
     box-sizing: border-box;
-    max-width: $Size;
+    width: $Size;
     height: $Size;
     white-space: pre-wrap;
 
@@ -99,9 +101,12 @@ $Size: 33px;
       color: blue;
       white-space: pre-wrap;
       word-break: break-all;
-      line-height: 16px;
-      letter-spacing: 8px;
+      line-height: 10px;
+      letter-spacing: 7px;
       background-color: gray;
+      font-size: 9px;
+
+      font-size: 7px;
     }
   }
 }
