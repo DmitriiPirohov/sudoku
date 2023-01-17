@@ -35,8 +35,6 @@ export const Records = ({ level }) => {
 
   let arrWidthRecords = record.filter(element => element[`${level}`]).sort((a, b) => a[`${level}`].map(a => a.time) - b[`${level}`].map(a => a.time)).map(a => a[`${level}`].map(a =>`${a.name} - ${getTime(a.time)}`));
 
-  // console.log(record.filter(element => element[`${level}`]).sort((a, b) => a[`${level}`].map(a => a.time) - b[`${level}`].map(a => a.time)).map(a => a[`${level}`].map(a =>`${a.name} - ${a.time}`)));
-
   return (
     <>
       <section className='Records'>

@@ -48,6 +48,14 @@
     ]
   },
   {
+    "inhuman": [
+      {
+        "name": "Bot",
+        "time": "8000"
+      }
+    ]
+  },
+  {
     "easy": [
       {
         "name": "Bot",
@@ -76,6 +84,14 @@
       {
         "name": "BodyMaker",
         "time": "5989"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Baracuda",
+        "time": "222"
       }
     ]
   }

@@ -278,6 +278,7 @@ export const GameSection = ({ level }) => {
                                         (indexError.includes(index) && !visibleArray[row][i].includes('+')) && 'GameBord__error error',
                                         (visibleArray.length > 0 && visibleArray[row][i].includes('+') && (visibleArray[row][i].replace(/[^1-9]/g, '').length >= 1)) && 'GameBord__input--draw',
                                         ((visibleArray.length > 0) && visibleArray[row][i].replace(/[.,]/g, '').split('').length <= 1) && 'GameBord__input--oneNum',
+                                        (index === chooseFill && visibleArray.length > 0 && visibleArray[row][i].includes('+') && (visibleArray[row][i].replace(/[^1-9]/g, '').length >= 1)) && 'selected'
                                       )
                                     }
                                   >
