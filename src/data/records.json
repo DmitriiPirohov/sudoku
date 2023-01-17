@@ -1,9 +1,82 @@
 [
-  {"easy" : [{"name" : "Bot", "time" : "3000000"}]},
-  {"medium" : [{"name" : "Bot", "time" : "3000000"}]},
-  {"hard" : [{"name" : "Bot", "time" : "3000000"}]},
-  {"very-hard" : [{"name" : "Bot", "time" : "3000000"}]},
-  {"insane" : [{"name" : "Bot", "time" : "3000000"}]},
-  {"inhuman" : [{"name" : "Batya", "time" : "420"}]},
-  {"easy" : [{"name" : "Bot" , "time" : "80000"}]}
+  {
+    "easy": [
+      {
+        "name": "Bot",
+        "time": "3000"
+      }
+    ]
+  },
+  {
+    "medium": [
+      {
+        "name": "Bot",
+        "time": "3000"
+      }
+    ]
+  },
+  {
+    "hard": [
+      {
+        "name": "Bot",
+        "time": "30000"
+      }
+    ]
+  },
+  {
+    "very-hard": [
+      {
+        "name": "Bot",
+        "time": "30000"
+      }
+    ]
+  },
+  {
+    "insane": [
+      {
+        "name": "Bot",
+        "time": "30000"
+      }
+    ]
+  },
+  {
+    "inhuman": [
+      {
+        "name": "Batya",
+        "time": "420"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Bot",
+        "time": "8000"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Dmitriy",
+        "time": "6014"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Dmitrii",
+        "time": "5963"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "BodyMaker",
+        "time": "5989"
+      }
+    ]
+  }
 ]

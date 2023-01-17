@@ -4,13 +4,11 @@ import { GameSection } from "../gameSection/GameSection";
 
 export const ChooseLevel = ({ name: namePage }) => {
   const [level, SetLevel] = useState('');
-  const [time, SetTime] = useState('');
-  const timer = new Date();
 
   function handleSubmit(el){
     return (
-      SetLevel(el),
-      SetTime(timer.toLocaleString().slice(12, 20))
+      SetLevel(el)
+      // SetTime(timer.toLocaleString().slice(12, 20))
     )
   }
 
@@ -24,7 +22,7 @@ export const ChooseLevel = ({ name: namePage }) => {
           {el}
         </button>
       ))}
-      {(namePage === 'game' && level !== '') && <GameSection level={level} time={time} />}
+      {(namePage === 'game' && level !== '') && <GameSection level={level} />}
       {(namePage === 'records' && level !== '') && <Records level={level} />}
     </>
   );

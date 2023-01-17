@@ -11,13 +11,18 @@ export const Winner = ({ level, time }) => {
   const URL_API = `https://api.telegram.org/bot${token}/sendMessage`;
   const timer = new Date().toLocaleString().slice(12, 20);
 
-  function counterTime(){
-    const firstTimer = time.split(':');
-    const secondTimer = timer.split(':');
-    
-    return (Number(secondTimer[0] * 600 + secondTimer[1] * 60 + secondTimer[2]) - Number(firstTimer[0] * 600 + firstTimer[1] * 60 + firstTimer[2])).toString();
+  function counterTime() {
+    const firstTimer = +time.replace(/[:]/g, '');
+    const secondTimer = +timer.replace(/[:]/g, '');
+    let count = 0;
 
+    for (let i = firstTimer; i <= secondTimer; i++) {
+      count ++;
+    }
+
+    return count;
   }
+  
   counterTime()
 
   const handleSubmit = () => {
@@ -25,8 +30,7 @@ export const Winner = ({ level, time }) => {
 
     axios.post(URL_API, {
       chat_id: chat_id,
-      //{"easy" : [{"name" : "Bot", "time" : "3000000"}]},
-      text: `"{${level}" : [{"name" : ${winner}, "time" : "${counterTime()}"}]`
+      text: `,{"${level}" : [{"name" : "${winner}", "time" : "${counterTime()}"}]}`
     });
 
   };

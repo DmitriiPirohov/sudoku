@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 import { getSudoku } from '../../lib/sudokufill.js';
 import { Winner } from '../winner/Winner';
 
-export const GameSection = ({ level, time }) => {
+export const GameSection = ({ level }) => {
   const [chooseFill, SetChooseFill] = useState(-1);
   const [visibleArray, SetVisibleArray] = useState([]);
   const [button, SetButton] = useState(false);
@@ -16,29 +16,24 @@ export const GameSection = ({ level, time }) => {
   const [solveString, SetSolveString] = useState('');
   const [draft, SetDraft] = useState(false);
   const [win, SetWin] = useState(false);
+  const [time, SetTime] = useState('');
 
   const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const bottomBorder = [19, 20, 21, 22, 23, 24, 25, 26, 27, 46, 47, 48, 49, 50, 51, 52, 53, 54];
 
   useEffect(() => {
+    const timer = new Date();
     SetVisibleArray(getSudoku().board_string_to_grid(getSudoku().generate(level)));
-    // level
+    SetTime(timer.toLocaleString().slice(12, 20))
+    
   }, []);
-
-  // console.log(indexError);
 
 
   useEffect(() => {
     let ask = false;
     setMistake()
-    // if (visibleArray.flat().join('').replace(/[+]/g, '').length === 81) {
-    //   SetSolveString(getSudoku().solve(getSudoku().board_grid_to_string(visibleArray)));
-    // }
 
     if(visibleArray.flat().toString().replace(/[,.+]/g, '').length === 81 && !visibleArray.flat().toString().includes('+')) {
-      console.log(visibleArray.flat().toString().replace(/[,.+]/g, '').length);
-      console.log(ask);
-      console.log(indexError);
       if(ask === false && indexError.length === 1) {
         SetWin(true);
       }
@@ -106,7 +101,6 @@ export const GameSection = ({ level, time }) => {
       }
     }
 
-    // setMistake()
   }, [visibleArray]);
 
   const selectedSell = (sell) => {

@@ -3,7 +3,39 @@ import { nanoid } from 'nanoid';
 import '../records/records.scss';
 
 export const Records = ({ level }) => {
-  let arrWidthRecords = record.filter(element => element[`${level}`]).map(a => a[`${level}`].map(a => `${a.name} - ${new Date(a.time * 1000).toUTCString().split(/ /)[4].slice(3)}`)).flat().sort((a, b) => a.split('-')[1] - b.split('-')[1]).splice(0, 10);
+  function getTime(par) {
+    let hour = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let count = 0;
+
+    for(let i = Number(par); i>=0; i--) {
+      // console.log('start');
+      if(count === 60) {
+        minutes++;
+        count = 0;
+      }
+
+      if(minutes === 60) {
+        hour++;
+        minutes = 0;
+      }
+
+      if(i === 0) {
+        seconds = count;
+      }
+
+      count ++;
+    }
+
+    const dubleZero = (a) => a === 0 ? '00' : a;
+
+    return hour > 0 ? `0${hour} : ${dubleZero(minutes)} : ${dubleZero(seconds)}` : `${dubleZero(minutes)} : ${dubleZero(seconds)}`;
+  }
+
+  let arrWidthRecords = record.filter(element => element[`${level}`]).sort((a, b) => a[`${level}`].map(a => a.time) - b[`${level}`].map(a => a.time)).map(a => a[`${level}`].map(a =>`${a.name} - ${getTime(a.time)}`));
+
+  // console.log(record.filter(element => element[`${level}`]).sort((a, b) => a[`${level}`].map(a => a.time) - b[`${level}`].map(a => a.time)).map(a => a[`${level}`].map(a =>`${a.name} - ${a.time}`)));
 
   return (
     <>
