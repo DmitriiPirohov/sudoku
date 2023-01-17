@@ -333,10 +333,10 @@ export const GameSection = ({ level, time }) => {
               </button>
             }
             <br />
-            {['chit', 'del', 'restart'].map((el, i) => (
+            {['chit', 'del', 'res'].map((el, i) => (
               <button
                 className='GameBord__buttons'
-                onClick={() => serviceButton(el)}
+                onClick={() => serviceButton(el === 'res' ? 'restart' : el)}
                 key={el}
               >
                 {el}
