@@ -21,7 +21,7 @@ export const GameSection = ({ level, time }) => {
   const bottomBorder = [19, 20, 21, 22, 23, 24, 25, 26, 27, 46, 47, 48, 49, 50, 51, 52, 53, 54];
 
   useEffect(() => {
-    SetVisibleArray(getSudoku().board_string_to_grid(getSudoku().generate(75)));
+    SetVisibleArray(getSudoku().board_string_to_grid(getSudoku().generate(level)));
     // level
   }, []);
 
