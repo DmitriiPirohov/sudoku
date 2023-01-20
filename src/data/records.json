@@ -110,5 +110,61 @@
         "time": "500"
       }
     ]
+  },
+  {
+    "medium": [
+      {
+        "name": "Batya",
+        "time": "496"
+      }
+    ]
+  },
+  {
+    "insane": [
+      {
+        "name": "Batya",
+        "time": "5900"
+      }
+    ]
+  },
+  {
+    "very-hard": [
+      {
+        "name": "Batya",
+        "time": "766"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Barbados",
+        "time": "88"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Bubochka",
+        "time": "90"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Batya",
+        "time": "77"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Макс",
+        "time": "4605"
+      }
+    ]
   }
 ]
