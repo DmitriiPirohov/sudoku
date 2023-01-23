@@ -10,7 +10,6 @@ export const Records = ({ level }) => {
     let count = 0;
 
     for(let i = Number(par); i>=0; i--) {
-      // console.log('start');
       if(count === 60) {
         minutes++;
         count = 0;

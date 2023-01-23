@@ -24,6 +24,7 @@ export const Winner = ({ level, time }) => {
   }
   
   counterTime()
+  
 
   const handleSubmit = () => {
     SetRecord(true);
