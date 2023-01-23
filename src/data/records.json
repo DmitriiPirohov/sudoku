@@ -166,5 +166,85 @@
         "time": "4605"
       }
     ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Batya",
+        "time": "33"
+      }
+    ]
+  },
+  {
+    "medium": [
+      {
+        "name": "Batya",
+        "time": "116"
+      }
+    ]
+  },
+  {
+    "medium": [
+      {
+        "name": "Batya",
+        "time": "107"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Batya",
+        "time": "74"
+      }
+    ]
+  },
+  {
+    "very-hard": [
+      {
+        "name": "Batya",
+        "time": "418"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Dudu",
+        "time": "35"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Batya",
+        "time": "36"
+      }
+    ]
+  },
+  {
+    "easy": [
+      {
+        "name": "Batya",
+        "time": "37"
+      }
+    ]
+  },
+  {
+    "very-hard": [
+      {
+        "name": "Batya",
+        "time": "199"
+      }
+    ]
+  },
+  {
+    "insane": [
+      {
+        "name": "Batya",
+        "time": "4728"
+      }
+    ]
   }
 ]
